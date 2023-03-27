@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import ReactPlayer from "react-player/youtube";
 
 function IntroPage() {
   const [email, setEmail] = useState("");
@@ -29,10 +30,14 @@ function IntroPage() {
 
   return (
     <main>
-      <section className="relative bg-[url('http://s3-us-west-2.amazonaws.com/techvibes/wp-content/uploads/2017/04/24135159/Netflix-Background.jpg')] aspect-auto w-screen h-screen bg-cover ">
-        <div className="bg-black bg-opacity-60 h-screen w-screen absolute z-1 top-0 left-0"></div>
+      <section className="relative bg-[url('http://s3-us-west-2.amazonaws.com/techvibes/wp-content/uploads/2017/04/24135159/Netflix-Background.jpg')] aspect-auto w-screen h-screen md:max-h-[700px] bg-cover ">
+        <div className="bg-black bg-opacity-60 h-screen w-screen md:h-[700px] absolute z-1 top-0 left-0"></div>
         <header className="absolute z-20 w-full flex aspect-auto justify-between items-center px-6 bg-gradient-to-b from-black to-transparent ">
-          <img src="/img/netflix_logo.png" alt="net_logo" className="w-32 " />
+          <img
+            src="/img/netflix_logo.png"
+            alt="net_logo"
+            className="w-32 object-contain"
+          />
           <button className="px-4 text-white font-bold rounded-md bg-red-700 text-md text-center h-9">
             Sign In
           </button>
@@ -74,6 +79,32 @@ function IntroPage() {
             )}
           </button>
         </form>
+      </section>
+
+      <section className="hidden md:inline-block border-y-4 border-gray-400  bg-black h-[700px] w-screen">
+        <div className="flex justify-center items-center space-x-5 mx-10">
+          <div className="flex flex-col space-y-2 text-white">
+            <h1 className="text-3xl">Enjoy your TV</h1>
+            <h2 className="text-xl">
+              Watch on smart TVs, Playstation, Xbox, Chromecast, Apple TV,
+              Blue-ray players and more{" "}
+            </h2>
+          </div>
+          <div>
+            <img
+              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+              className=""
+            />
+            <ReactPlayer
+              url="https://www.youtube.com/watch?v=ViKnrHjzgn4&modestbranding=1"
+              width={120}
+              height={120}
+              muted={true}
+              loop={true}
+              playing={true}
+            />
+          </div>
+        </div>
       </section>
     </main>
   );
