@@ -3,6 +3,7 @@ import "./App.css";
 import IntroPage from "./IntroPage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
+import Login from "./Login";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -14,7 +15,7 @@ function App() {
           element={!user ? <IntroPage /> : <Navigate to={"/"} replace={true} />}
         />
 
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/" element={<Home />} /> */}
       </Routes>
     </div>
